@@ -26,8 +26,8 @@
     </button>
    
     <div class="links">
-   <a href="#" class ="reset"> <p>Forgot password ?</p></a>
-   <a href="#" class ="register"> <p>Register</p></a>
+   <a href="recovery.php" class ="reset"> <p>Forgot password ?</p></a>
+   <a href="register.php" class ="register"> <p>New User?</p></a>
    </div> 
 </form>
 </div>

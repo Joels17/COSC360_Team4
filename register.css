@@ -1,0 +1,174 @@
+.form-master{
+    display: flex;
+    justify-content: center;
+    
+   
+}
+.pp,
+.fName,
+.lName,
+.uName,
+.email,
+.password,
+.confirm-password{
+ 
+     width: 30em;
+     position: relative;
+     height: 50px;
+    left: 1em;
+    top: 18em;
+    
+     overflow: hidden;
+ }
+
+ .fName input,
+ .lName input,
+ .uName input,
+ .email input,
+ .password input,
+ .confirm-password input{
+
+    width: 100%;
+    height: 50px;
+    padding-top: 20px;
+    border: none;
+    font-size: larger;
+    
+}
+
+.fName label,
+.lName label,
+.uName label,
+.email label,
+.password label,
+.confirm-password label{
+
+    position: absolute;
+    bottom: 0px;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    border-bottom: 1px solid black;
+   
+}
+
+.fName label::after,
+.lName label::after,
+.uName label::after,
+.email label::after,
+.password label::after,
+.confirm-password label::after
+
+    {
+    content: "";
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    bottom: -1px;
+    left: 0;
+    border-bottom: 3px solid lightcoral;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+
+}
+
+.content{
+    position: absolute;
+    bottom: 5px;
+    left: 0px;
+    transition: all 0.8s ease;
+}
+.fName input:focus + label .content,
+.fName input:valid + label .content,
+.lName input:focus + label .content,
+.lName input:valid + label .content,
+.uName input:focus + label .content,
+.uName input:valid + label .content,
+.email input:focus + label .content,
+.email input:valid + label .content,
+.password input:focus + label .content,
+.password input:valid + label .content,
+.confirm-password input:focus + label .content,
+.confirm-password input:valid + label .content
+{
+    transform: translateY(-150%);
+    font-size: 14px;
+}
+.fName input:focus + label::after,
+.fName input:valid + label::after,
+
+.lName input:focus + label::after,
+.lName input:valid + label::after,
+
+.uName input:focus + label::after,
+.uName input:valid + label::after,
+
+.email input:focus + label::after,
+.email input:valid + label::after,
+
+.password input:focus + label::after,
+.password input:valid + label::after,
+
+.confirm-password input:focus + label::after,
+.confirm-password input:valid + label::after
+
+{
+     transform: translateX(0%);
+
+}
+
+.spacer{
+    padding: 1em;
+}
+
+.pp input{
+   
+    position: relative;
+  top: 20px;
+}
+
+.pp-label{
+   position: relative;
+    right: 5em;
+    border-bottom: 1px solid black;
+}
+.pp{
+    display: flex;
+    flex-direction: row-reverse;
+    position: relative;
+    right: 10em;
+}
+.pp-content{
+    position: relative;
+    top: 20px;
+}
+
+.links button{
+    left: 36em;
+  top: 30em;
+  padding: 0.5em;
+  position: relative;
+  width: 20%;
+  border-radius: 1em;
+  border: none;
+  cursor: pointer;
+  height: 2em;
+  background-color: antiquewhite;
+    
+}
+button:hover{
+    box-shadow: 0 5px #666;
+}
+.cancel:active {
+    background-color:  red;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+    border: none;
+}
+.register:active {
+    background-color:  lightgreen;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+    border: none;
+}

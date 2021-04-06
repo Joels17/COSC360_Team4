@@ -1,0 +1,104 @@
+.form-master{
+    display: flex;
+    justify-content: center;
+   
+}
+
+
+.email-recovery-form{
+   overflow: hidden;
+    width: 30em;
+    position: relative;
+    height: 50px;
+   left: 8em;
+   top: 23em;
+    
+}
+
+.email-recovery-form input{
+    width: 100%;
+    height: 50px;
+    padding-top: 20px;
+    border: none;
+    font-size: larger; 
+}
+
+.email-recovery-form label{
+    position: absolute;
+    left: 0px;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    border-bottom: 1px solid black;
+   
+}
+.email-recovery-form label::after 
+    {
+    content: "";
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    left: 0;
+    bottom: -1px;
+    border-bottom: 3px solid lightcoral;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+
+}
+.email-content{
+    position: absolute;
+    bottom: 5px;
+    left: 0px;
+    transition: all 0.8s ease;
+}
+
+.email-recovery-form input:focus + label .email-content,
+.email-recovery-form input:valid + label .email-content
+{
+    transform: translateY(-150%);
+    font-size: 14px;
+    
+}
+.email-recovery-form input:focus + label::after,
+.email-recovery-form input:valid + label::after
+
+{
+     transform: translateX(0%);
+
+}
+.submit{
+    padding: 0.5em;
+    position: relative;
+    top: 40em;
+    right: 20em;
+    width: 20%;
+    border-radius: 1em;
+   border: none;
+   cursor: pointer;
+   height: 2em;
+   
+}
+
+.button-content{
+    font-size: 19px;
+    position: relative;   
+    bottom: 7px; 
+}
+
+body p {
+    font-size: large;
+    position: absolute;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    top: 15em;
+    left: 18em;
+}
+button:hover{
+    box-shadow: 0 5px #666;
+}
+button:active {
+    background-color:  lightcoral;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+    border: none;
+}
