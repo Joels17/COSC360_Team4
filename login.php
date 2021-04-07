@@ -10,7 +10,7 @@
 </head>
 <body>
 <div class = "form-master">
-   <form action="">
+   <form action="./scripts/login_script.php" method="POST">
 
 
     <div class= "email-form">
