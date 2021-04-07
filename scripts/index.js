@@ -8,6 +8,5 @@ window.addEventListener('load', function () {
            alert("File is too big!");
            this.value = "";
         };
-        console.log("HI");
     };
   })

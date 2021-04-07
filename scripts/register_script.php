@@ -50,5 +50,8 @@ if(!mysqli_stmt_prepare($stmt, $sql)){
     }
 }
 
+mysqli_free_result($results);
+mysqli_free_result($resultsCheck);
+mysqli_close($connection);
 
 ?>

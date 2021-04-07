@@ -26,6 +26,7 @@ if(!mysqli_stmt_prepare($stmtCheck, $sqlCheck)){
     }
 }
 
-
+mysqli_free_result($resultsCheck);
+mysqli_close($connection);
 
 ?>
