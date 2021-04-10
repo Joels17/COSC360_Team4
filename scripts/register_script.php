@@ -1,6 +1,6 @@
 <?php
 
-include "../database_connect.php";
+include "database_connect.php";
 
 if($_SERVER['REQUEST_METHOD'] !== 'POST'){
     die("Incorrect request method");
