@@ -4,7 +4,7 @@
 </head>
 <body>
     <p>Enter your email and we'll send you a recovery code if you have an account with us !</p>
-    <form action="" class="form-master">
+    <form action="./scripts/recovery_script.php" class="form-master" method="POST">
     <div class = "email-recovery-form" >
     <input  type="text" name="e-mail" required>
     <label for="e-mail" class ="e-label"><span class = "email-content">E-mail</span></label>

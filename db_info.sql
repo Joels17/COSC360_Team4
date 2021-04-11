@@ -37,6 +37,15 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
+-- Table structure for table `tempCode`
+--
+
+CREATE TABLE `tempCode` (
+  `email` varchar(255) NOT NULL PRIMARY KEY,
+  `code` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
 -- Dumping data for table `users`
 --
 
@@ -53,6 +62,7 @@ INSERT INTO `users` (`username`, `firstName`, `lastName`, `email`, `number`, `pa
 ALTER TABLE `users`
   ADD PRIMARY KEY (`username`),
   ADD UNIQUE KEY `email` (`email`);
+
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
