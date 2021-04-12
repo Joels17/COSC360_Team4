@@ -14,7 +14,14 @@
             <nav id="nav">
                 <a href="#">Home</a>
                 <a href="#">MyBlogPost</a>
-                <a href="login.php">Login</a>
+                <?php 
+                    session_start();
+                    if(isset($_SESSION['user'])){
+                ?>
+                    <a href="login.php">Account</a>
+                <?php }else{ ?>
+                    <a href="login.php">Login</a>
+                <?php } ?>
             </nav>
         </header>
     </div>

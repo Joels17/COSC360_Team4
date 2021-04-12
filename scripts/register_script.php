@@ -1,6 +1,6 @@
 <?php
 
-
+session_start();
 
 if($_SERVER['REQUEST_METHOD'] !== 'POST'){
     die("Incorrect request method");
@@ -36,6 +36,7 @@ if(!mysqli_stmt_prepare($stmt, $sql)){
     mysqli_stmt_bind_param($stmt, "sssss", $username, $firstName, $lastName, $email, $hashPass);
     mysqli_stmt_execute($stmt);
     echo "Success, the account '$username' has been created!";
+    $_SESSION['user'] = $username;
 
     // This part is just to show how to find and display the image
     $sql1 = "SELECT * FROM users WHERE username = ?";
@@ -47,7 +48,7 @@ if(!mysqli_stmt_prepare($stmt, $sql)){
         mysqli_stmt_execute($stmt1);
         $results = mysqli_stmt_get_result($stmt1);
         $result = mysqli_fetch_assoc($results);
-        echo '<img width=200 height=200 src="data:image/jpeg;base64,'.base64_encode( $result['img'] ).'"/>';
+        echo '<a href="../index.php">Home</a><img width=200 height=200 src="data:image/jpeg;base64,'.base64_encode( $result['img'] ).'"/>';
     }
 }
 

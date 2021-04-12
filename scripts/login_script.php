@@ -1,6 +1,6 @@
 <?php
 
-
+session_start();
 
 if($_SERVER['REQUEST_METHOD'] !== 'POST'){
     die("Incorrect request method");
@@ -22,7 +22,8 @@ if(!mysqli_stmt_prepare($stmtCheck, $sqlCheck)){
     $resultsCheck = mysqli_stmt_get_result($stmtCheck);
     $results = mysqli_fetch_assoc($resultsCheck);
     if(!empty($results)){
-        echo "Logged In as ".$results['username'];
+        $_SESSION['user'] = $results['username'];
+        header("Location: ../index.php"); 
     }else{
         echo "Incorrect email/password";
     }
