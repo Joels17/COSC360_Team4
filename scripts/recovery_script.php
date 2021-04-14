@@ -39,7 +39,7 @@
             $mail->SMTPAuth = true;
             $mail->SMTPSecure = 'ssl';
             $mail->Host = 'smtp.gmail.com';
-            $mail->Port = '25';
+            $mail->Port = '465';
             $mail->isHTML();
             $mail->Username = 'cosc360team4@gmail.com';
             $mail->Password = 'cosc360!';
