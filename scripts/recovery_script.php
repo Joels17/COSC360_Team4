@@ -45,8 +45,8 @@
             $mail->Password = 'cosc360!';
             $mail->SetFrom('no-reply@team4.com');
             $mail->Subject = 'MyBlogSite Password Recovery';
-            // Change following href to that of your correct changePassword.php location
-            $mail->Body = "Please click on the link: <a href=localhost/Project/COSC360_Team4/passwordCode.php?email=".$email.">LINK</a> And input this code: ".$code;
+            // Change following href to that of your correct changePassword.php location for local
+            $mail->Body = "Please click on the link: <a href=https://cosc360-team4.herokuapp.com/passwordCode.php?email=".$email.">LINK</a> And input this code: ".$code;
             $mail->AddAddress($email);
 
             $mail->Send();
