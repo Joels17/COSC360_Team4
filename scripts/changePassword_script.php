@@ -19,7 +19,7 @@
             $resultsCode = mysqli_stmt_get_result($stmtCode);
             $results = mysqli_fetch_assoc($resultsCode);
             if(!empty($results)){
-                if($userCode == $results['code']){
+                if(md5($userCode) == $results['code']){
                     $sqlUpdate = "UPDATE users SET password = ? WHERE email = ?";
                     $stmtUpdate = mysqli_stmt_init($connection);
                     if(!mysqli_stmt_prepare($stmtUpdate, $sqlUpdate)){
