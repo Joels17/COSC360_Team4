@@ -35,10 +35,11 @@
                 mysqli_stmt_execute($stmtCode);
             }
             $mail = new PHPMailer();
+            $mail->isSMTP();
             $mail->SMTPAuth = true;
             $mail->SMTPSecure = 'ssl';
             $mail->Host = 'smtp.gmail.com';
-            $mail->Port = '465';
+            $mail->Port = '25';
             $mail->isHTML();
             $mail->Username = 'cosc360team4@gmail.com';
             $mail->Password = 'cosc360!';
