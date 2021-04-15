@@ -14,7 +14,7 @@ $password = $cleardb_url["pass"];
 $database = substr($cleardb_url["path"],1);
 $active_group = 'default';
 $query_builder = TRUE;
-echo $cleardb_url;
+print_r($cleardb_url);
 $connection = mysqli_connect($host, $user, $password, $database);
 
 $error = mysqli_connect_error();
