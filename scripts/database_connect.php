@@ -15,7 +15,7 @@ $database = substr($cleardb_url["path"],1);
 $active_group = 'default';
 $query_builder = TRUE;
 
-$connection = mysqli_connect("us-cdbr-east-03.cleardb.com", "bb9e705b04bc79", "1e1b9a6f", "heroku_3a9bf1367309f32");
+$connection = mysqli_connect($host, $user, $password, $database);
 
 $error = mysqli_connect_error();
 if($error != null)
