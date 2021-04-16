@@ -9,7 +9,7 @@
 <body>
     <div class ="header" id="headerContainer">
         <header id="header1">
-            <h1>Blog Site</h1>
+            <h1 id="test">Blog Site</h1>
             <p>Placeholder header</p>
             <nav id="nav">
                 <a href="#">Home</a>
