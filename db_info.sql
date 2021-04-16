@@ -39,7 +39,7 @@ CREATE TABLE `users` (
   `email` varchar(255) NOT NULL,
   `number` varchar(10) NOT NULL,
   `password` varchar(255) NOT NULL,
-  `img` blob,
+  `img` LONGBLOB,
   `disabled` BOOLEAN NOT NULL,
   `admin` BOOLEAN NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -65,6 +65,8 @@ CREATE TABLE `blogs` (
   `views` int NOT NULL,
   `uploadUser` varchar(255) NOT NULL,
   FOREIGN KEY (`uploadUser`) REFERENCES `users`(`username`)
+         ON DELETE CASCADE
+       ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -77,8 +79,12 @@ CREATE TABLE `comments` (
   `datetime` DATETIME NOT NULL,
   `uploadUser` varchar(255) NOT NULL,
   `uploadBlog` int NOT NULL,
-  FOREIGN KEY (`uploadUser`) REFERENCES `users`(`username`),
+  FOREIGN KEY (`uploadUser`) REFERENCES `users`(`username`)
+         ON DELETE CASCADE
+       ON UPDATE CASCADE,
   FOREIGN KEY (`uploadBlog`) REFERENCES `blogs`(`id`)
+         ON DELETE CASCADE
+       ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --

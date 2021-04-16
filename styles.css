@@ -229,6 +229,7 @@ button:active {
 #blog-image{
 	height: 90px;
 	width: 90px;
+	background-color: yellow;
 	outline: 2px solid black;
 }
 #blog-info{
