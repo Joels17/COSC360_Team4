@@ -7,7 +7,7 @@
     <script defer type="text/JavaScript" src="scripts/index.js"></script>
 </head>
 <body>
-    <div class ="header" id="headerContainer">
+   <div class ="header" id="headerContainer">
         <header id="header1">
             <h1 id="test">Blog Site</h1>
             <p>Placeholder header</p>
@@ -30,32 +30,52 @@
 			<h3>Trending Posts</h3>
 				<div id="left-wrapper">
 					<!-- DIV CLASS ROW IS ADDED INSIDE HERE -->
-					<div id="row">
-						<div id="post">
-							<div id="preset-row">
-								<div id="row">
-									<div id="blog-image">
-									<img src="https://media.defense.gov/2020/Feb/19/2002251686/700/465/0/200219-A-QY194-002.JPG" width=90 height=90/>
-									</div>
-									<div id="spacer">
-									</div>
-									<div id="blog-info">
-										<div id="row">
-											<div id="info-title" class="info-inside">
-											Title:
-											</div>
-											<div id="info-author" class="info-inside">
-											Author:
-											</div>
-											<div id="info-views" class="info-inside">
-											Views:
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
+					<?php
+						include "scripts/database_connect.php";
+						
+						$sqlBlogs = "SELECT title, views, uploadUser FROM blogs B WHERE B.views > 10;";
+						$error = mysqli_connect_error();
+						if($error != null)
+						{
+						  $output = "<p>Unable to connect to database!</p>";
+						  exit($output);
+						}
+						else{
+							$results = mysqli_query($connection, $sqlBlogs);
+							while ($row = mysqli_fetch_assoc($results))
+							{
+								echo "<div id=\"row\">";
+									echo "<div id=\"post\">";
+										echo "<div id=\"preset-row\">";
+											echo "<div id=\"row\">";
+												echo "<div id=\"blog-image\">";
+													echo "<img src=\"https://media.defense.gov/2020/Feb/19/2002251686/700/465/0/200219-A-QY194-002.JPG\" width=90 height=90/>";
+												echo "</div>";
+												echo "<div id=\"spacer\">";
+												echo "</div>";
+												echo "<div id=\"blog-info\">";
+													echo "<div id=\"row\">";
+														echo "<div id=\"info-title\" class=\"info-inside\">";
+															echo "Title: " . $row['title'];
+														echo "</div>";
+														echo "<div id=\"info-author\" class=\"info-inside\">";
+															echo "Author: " . $row['uploadUser'];
+														echo "</div>";
+														echo "<div id=\"info-views\" class=\"info-inside\">";
+															echo "Views: " . $row['views'];
+														echo "</div>";
+													echo "</div>";
+												echo "</div>";
+											echo "</div>";
+										echo "</div>";
+									echo "</div>";
+								echo "</div>";
+							}
+							
+						}
+							mysqli_close($connection);
+					?>
+					
 					<!-- DIV CLASS ROW IS ADDED INSIDE HERE -->
 				</div>
 		</div>
