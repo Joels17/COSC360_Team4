@@ -1,6 +1,6 @@
 <?php
     include "database_connect.php";
-
+    date_default_timezone_set('America/Vancouver');
     session_start();
     if(!isset($_SESSION['user'])){
         die("Not logged in");
