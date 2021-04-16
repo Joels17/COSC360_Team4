@@ -232,11 +232,24 @@ button:active {
 	background-color: yellow;
 	outline: 2px solid black;
 }
+#create-blog-image{
+	height: 90px;
+	width: 90px;
+}
+#profile-pic{
+	z-index: 900;
+}
 #blog-info{
 	height: 80px;
 	width: 700px;
 	padding: 5px;
 	float: right;
+}
+#blog-create-container{
+	height: 80px;
+	width: 700px;
+	padding: 5px;
+	float: left;
 }
 #spacer{
 	height: 100px;
@@ -245,6 +258,21 @@ button:active {
 #preset-row{
   background-image: linear-gradient(white, grey);
   height: 100px;
+}
+#preset-row-blank{
+  height: 100px;
+}
+#post-blank{
+	display: flex;
+	flex-direction: column;
+	flex-basis: 100%;
+	flex: 1;
+}
+#create-post-words{
+	margin-left: 125px;
+	margin-top: 20px;
+	font-weight: bold;
+	font-size: 30px;
 }
 
 .info-inside{

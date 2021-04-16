@@ -28,7 +28,7 @@
 					<?php
 						include "scripts/database_connect.php";
 						
-						$sqlBlogs = "SELECT title, views, uploadUser, img FROM blogs B, users U WHERE B.uploadUser = U.username AND B.views > 10;";
+						$sqlBlogs = "SELECT id, title, views, uploadUser, img FROM blogs B, users U WHERE B.uploadUser = U.username ORDER BY B.views DESC LIMIT 10;";
 						$error = mysqli_connect_error();
 						if($error != null)
 						{
@@ -42,7 +42,7 @@
 								echo "<div id=\"row\">";
 									echo "<div id=\"post\">";
 										echo "<div id=\"preset-row\">";
-											echo "<a href=\"index.php\">";
+											echo "<a href=\"blogPage.php?blogId=" . $row['id'] . "\">";
 											echo "<div id=\"row\">";
 												echo "<div id=\"blog-image\">";
 													echo '<img src="data:image/jpeg;base64,'. base64_encode($row['img']) .'" width=90 height=90/>';
@@ -82,11 +82,43 @@
             ?>
 				<h3>Your Posts</h3>
 				<div id="right-wrapper">
-					<!-- DIV CLASS ROW IS ADDED INSIDE HERE -->
+					<!-- DIV CLASS ROW IS ADDED INSIDE HERE 		https://icon-library.net/images/icon-plus-sign/icon-plus-sign-18.jpg	-->
 					<?php
 						include "scripts/database_connect.php";
 						
-						$sqlMyBlogs = "SELECT title, views, img FROM blogs B, users U WHERE B.uploadUser = U.username AND uploadUser = ?;";
+						echo "<div id=\"row\">";
+							echo "<div id=\"post\">";
+								echo "<div id=\"preset-row\">";
+									echo "<a href=\"createBlog.php\">";
+									echo "<div id=\"row\">";
+										echo "<div id=\"blog-create-container\">";
+											echo "<div id=\"create-post-words\">";
+												echo "Create A New Post";
+											echo "</div>";
+										echo "</div>";
+										echo "<div id=\"spacer\">";
+										echo "</div>";
+										echo "<div id=\"spacer\">";
+										echo "</div>";
+										echo "<div id=\"create-blog-image\">";
+											echo "<img src=\"https://icon-library.net/images/icon-plus-sign/icon-plus-sign-18.jpg\" width=90 height=90>";
+										echo "</div>";
+									echo "</div>";
+									echo "</a>";
+								echo "</div>";
+							echo "</div>";
+						echo "</div>";
+						
+						//BLANK SPACER DO NOT ADD ANYTHING INTO THIS
+						echo "<div id=\"row\">";
+							echo "<div id=\"post-blank\">";
+								echo "<div id=\"preset-row-blank\">";	
+								echo "</div>";
+							echo "</div>";
+						echo "</div>";
+						
+						
+						$sqlMyBlogs = "SELECT id, title, views, img FROM blogs B, users U WHERE B.uploadUser = U.username AND uploadUser = ?;";
 						$stmtCheck = mysqli_stmt_init($connection);
 						$username = $_SESSION['user'];
 						if(!mysqli_stmt_prepare($stmtCheck, $sqlMyBlogs)){
@@ -100,10 +132,12 @@
 								echo "<div id=\"row\">";
 									echo "<div id=\"post\">";
 										echo "<div id=\"preset-row\">";
-											echo "<a href=\"index.php\">";
+											echo "<a href=\"blogPage.php?blogId=" . $myRow['id'] . "\">";
 											echo "<div id=\"row\">";
 												echo "<div id=\"blog-image\">";
-													echo '<img src="data:image/jpeg;base64,'. base64_encode($myRow['img']) .'" width=90 height=90/>';
+
+													echo '<img id="profile-pic" src="data:image/jpeg;base64,'. base64_encode($myRow['img']) .'" width=90 height=90/>';
+
 												echo "</div>";
 												echo "<div id=\"spacer\">";
 												echo "</div>";
