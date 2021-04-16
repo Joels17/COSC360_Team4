@@ -135,7 +135,9 @@
 											echo "<a href=\"blogPage.php?blogId=" . $myRow['id'] . "\">";
 											echo "<div id=\"row\">";
 												echo "<div id=\"blog-image\">";
+
 													echo '<img id="profile-pic" src="data:image/jpeg;base64,'. base64_encode($myRow['img']) .'" width=90 height=90/>';
+
 												echo "</div>";
 												echo "<div id=\"spacer\">";
 												echo "</div>";
