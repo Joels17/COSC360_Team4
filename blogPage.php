@@ -29,6 +29,18 @@
                     if(!empty($results)){
                         echo "<h2>".$results['title']."</h2>";
                         echo "<p>".$results['body']."</p>";
+                        echo "<p class=\"uploadUser\">Author: ".$results['uploadUser']."</p>";
+                        echo "<p class=\"uploadUser\">Views: ".$results['views']."</p>";
+
+                        $views = $results['views'] +1;
+                        $sqlViews = "UPDATE blogs SET views = ? WHERE id = ?;";
+                        $stmtViews = mysqli_stmt_init($connection);
+                        if(!mysqli_stmt_prepare($stmtViews, $sqlViews)){
+                            echo "SQL statement failed";
+                        }else{
+                            mysqli_stmt_bind_param($stmtViews, "ii", $views, $blogId);
+                            mysqli_stmt_execute($stmtViews);
+                        }
                     }else{
                         echo "Incorrect blog id";
                     }
