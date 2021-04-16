@@ -9,7 +9,9 @@
 
 </head>
 <body>  
-
+<?php
+   include "header.php";
+?>
 <div class = "form-master">
    <form action="./scripts/login_script.php" method="POST">
 

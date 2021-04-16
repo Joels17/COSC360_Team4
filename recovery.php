@@ -3,6 +3,9 @@
     <link rel= "stylesheet" href="recovery.css">
 </head>
 <body>
+<?php
+   include "header.php";
+?>
     <p>Enter your email and we'll send you a recovery code if you have an account with us !</p>
     <form action="./scripts/recovery_script.php" class="form-master" method="POST">
     <div class = "email-recovery-form" >

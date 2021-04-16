@@ -3,15 +3,7 @@ body{
 	height: 100%;
     margin: 0;
 }
-#nav {
-    display: flex;
-    justify-content: space-between;
-}
-h1 {
-    display: flex;
-    justify-content: center;
-   
-}
+
 h3 {
 	text-align: center;
 	font-size: 25px;
@@ -135,18 +127,7 @@ button:active {
     border: none;
 }
 
-/* Header CSS */
-.header{
-    padding: 60px;
-    text-align: center;
-    background: green;
-    color: black;
-    font-size: 30px;
-    position: fixed;
-    top: 0;
-    width:95%;
-	z-index: 1000;
-}
+
 /*page styling */
 .content{
     margin-top: 380px;

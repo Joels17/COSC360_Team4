@@ -1,0 +1,43 @@
+.form-master {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin: 5rem;
+}
+.form-master input, textarea {
+    margin: 1rem;
+}
+
+#createBlog-title {
+    text-align: center;
+    margin-top: 4rem;
+    font-size: 2rem;
+}
+
+.submit{
+    padding: 0.5em;
+    position: relative;
+    width: 20%;
+    border-radius: 1em;
+   border: none;
+   cursor: pointer;
+   height: 2em;
+   
+}
+
+.button-content{
+    font-size: 19px;
+    position: relative;   
+    bottom: 5px; 
+}
+
+button:hover{
+    box-shadow: 0 5px #666;
+}
+button:active {
+    background-color:  lightcoral;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+    border: none;
+}
