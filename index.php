@@ -7,24 +7,9 @@
     <script defer type="text/JavaScript" src="scripts/index.js"></script>
 </head>
 <body>
-    <div class ="header" id="headerContainer">
-        <header id="header1">
-            <h1 id="test">Blog Site</h1>
-            <p>Placeholder header</p>
-            <nav id="nav">
-                <a href="#">Home</a>
-                <a href="#">MyBlogPost</a>
-                <?php 
-                    session_start();
-                    if(isset($_SESSION['user'])){
-                ?>
-                    <a href="login.php">Account</a>
-                <?php }else{ ?>
-                    <a href="login.php">Login</a>
-                <?php } ?>
-            </nav>
-        </header>
-    </div>
+	<?php
+		include "header.php";
+	?>
     <div class="content">
 		<div class="column-left" id="column1">
 			<h3>Trending Posts</h3>

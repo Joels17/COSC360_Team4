@@ -4,6 +4,9 @@
     <script defer type="text/JavaScript" src="scripts/index.js"></script>
 </head>
 <body>
+<?php
+   include "header.php";
+?>
     <div class="form-master">
     <form action="./scripts/register_script.php" method="POST" enctype="multipart/form-data">
 
