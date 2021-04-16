@@ -8,7 +8,8 @@
 <link rel= "stylesheet" href="styles.css">
 
 </head>
-<body>
+<body>  
+
 <div class = "form-master">
    <form action="./scripts/login_script.php" method="POST">
 

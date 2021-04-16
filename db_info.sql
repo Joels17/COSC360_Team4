@@ -39,7 +39,9 @@ CREATE TABLE `users` (
   `email` varchar(255) NOT NULL,
   `number` varchar(10) NOT NULL,
   `password` varchar(255) NOT NULL,
-  `img` blob
+  `img` blob,
+  `disabled` BOOLEAN NOT NULL,
+  `admin` BOOLEAN NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --

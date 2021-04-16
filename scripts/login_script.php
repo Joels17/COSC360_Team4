@@ -11,7 +11,7 @@ include "database_connect.php";
 $email = $_POST['e-mail'];
 $password = $_POST['pass'];
 
-$sqlCheck = "SELECT username FROM users WHERE email = ? AND password = ?;";
+$sqlCheck = "SELECT username, disabled FROM users WHERE email = ? AND password = ?;";
 $stmtCheck = mysqli_stmt_init($connection);
 if(!mysqli_stmt_prepare($stmtCheck, $sqlCheck)){
     echo "SQL statement failed";
@@ -21,9 +21,14 @@ if(!mysqli_stmt_prepare($stmtCheck, $sqlCheck)){
     mysqli_stmt_execute($stmtCheck);
     $resultsCheck = mysqli_stmt_get_result($stmtCheck);
     $results = mysqli_fetch_assoc($resultsCheck);
-    if(!empty($results)){
+    if(!empty($results) && $results['disabled'] != 1){
+        if($results['admin'] == 1){
+            $_SESSION['admin'] = 1;
+        }
         $_SESSION['user'] = $results['username'];
         header("Location: ../index.php"); 
+    }elseif($results['disabled'] == 1){
+        echo "Your account has been disabled";
     }else{
         echo "Incorrect email/password";
     }
