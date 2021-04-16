@@ -56,7 +56,7 @@
 							</div>
 						</div>
 					</div>
-					
+					<!-- DIV CLASS ROW IS ADDED INSIDE HERE -->
 				</div>
 		</div>
 		<div class="column-right" id="column2">
