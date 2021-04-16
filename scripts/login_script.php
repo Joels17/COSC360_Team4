@@ -11,7 +11,7 @@ include "database_connect.php";
 $email = $_POST['e-mail'];
 $password = $_POST['pass'];
 
-$sqlCheck = "SELECT username, disabled FROM users WHERE email = ? AND password = ?;";
+$sqlCheck = "SELECT username, disabled, admin FROM users WHERE email = ? AND password = ?;";
 $stmtCheck = mysqli_stmt_init($connection);
 if(!mysqli_stmt_prepare($stmtCheck, $sqlCheck)){
     echo "SQL statement failed";
