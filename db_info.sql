@@ -20,6 +20,12 @@ SET time_zone = "+00:00";
 -- Database: `blog_sample`
 --
 
+
+DROP TABLE IF EXISTS `tempCode`;
+DROP TABLE IF EXISTS `comments`;
+DROP TABLE IF EXISTS `blogs`;
+DROP TABLE IF EXISTS `users`;
+
 -- --------------------------------------------------------
 
 --
@@ -27,13 +33,15 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `users` (
-  `username` varchar(255) NOT NULL,
+  `username` varchar(255) NOT NULL PRIMARY KEY,
   `firstName` varchar(255) NOT NULL,
   `lastName` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL,
   `number` varchar(10) NOT NULL,
   `password` varchar(255) NOT NULL,
-  `img` blob
+  `img` blob,
+  `disabled` BOOLEAN NOT NULL,
+  `admin` BOOLEAN NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -43,6 +51,34 @@ CREATE TABLE `users` (
 CREATE TABLE `tempCode` (
   `email` varchar(255) NOT NULL PRIMARY KEY,
   `code` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Table structure for table `blogs`
+--
+
+CREATE TABLE `blogs` (
+  `id` int NOT NULL PRIMARY KEY AUTO_INCREMENT,
+  `title` varchar(255) NOT NULL,
+  `body` TEXT NOT NULL,
+  `datetime` DATETIME NOT NULL,
+  `views` int NOT NULL,
+  `uploadUser` varchar(255) NOT NULL,
+  FOREIGN KEY (`uploadUser`) REFERENCES `users`(`username`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Table structure for table `comments`
+--
+
+CREATE TABLE `comments` (
+  `id` int NOT NULL PRIMARY KEY AUTO_INCREMENT,
+  `commentBody` TEXT NOT NULL,
+  `datetime` DATETIME NOT NULL,
+  `uploadUser` varchar(255) NOT NULL,
+  `uploadBlog` int NOT NULL,
+  FOREIGN KEY (`uploadUser`) REFERENCES `users`(`username`),
+  FOREIGN KEY (`uploadBlog`) REFERENCES `blogs`(`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -56,12 +92,6 @@ INSERT INTO `users` (`username`, `firstName`, `lastName`, `email`, `number`, `pa
 -- Indexes for dumped tables
 --
 
---
--- Indexes for table `users`
---
-ALTER TABLE `users`
-  ADD PRIMARY KEY (`username`),
-  ADD UNIQUE KEY `email` (`email`);
 
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

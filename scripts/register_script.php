@@ -27,13 +27,15 @@ if(!mysqli_stmt_prepare($stmtCheck, $sqlCheck)){
 }
 
 $image = addslashes(file_get_contents($_FILES['pp-upload']['tmp_name']));
-$sql = "INSERT INTO users (username, firstName, lastName, email, password, img) VALUES (?,?,?,?,?,'$image');";
+$sql = "INSERT INTO users (username, firstName, lastName, email, password, img, disabled, admin) VALUES (?,?,?,?,?,'$image',?,?);";
 $stmt = mysqli_stmt_init($connection);
 if(!mysqli_stmt_prepare($stmt, $sql)){
     echo "SQL statement failed";
 }else{
     $hashPass = md5($password);
-    mysqli_stmt_bind_param($stmt, "sssss", $username, $firstName, $lastName, $email, $hashPass);
+    $disabled = 0;
+    $admin = 0;
+    mysqli_stmt_bind_param($stmt, "sssssbb", $username, $firstName, $lastName, $email, $hashPass, $disabled, $admin);
     mysqli_stmt_execute($stmt);
     echo "Success, the account '$username' has been created!";
     $_SESSION['user'] = $username;
