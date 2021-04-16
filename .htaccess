@@ -1,0 +1,1 @@
+ErrorDocument 404 https://cosc360-team4.herokuapp.com/error.php

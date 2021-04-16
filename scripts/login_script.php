@@ -27,8 +27,12 @@ if(!mysqli_stmt_prepare($stmtCheck, $sqlCheck)){
         }
         $_SESSION['user'] = $results['username'];
         header("Location: ../index.php"); 
-    }elseif($results['disabled'] == 1){
-        echo "Your account has been disabled";
+    }elseif(isset($results['disabled']) ){
+        if($results['disabled'] == 1){
+            echo "Your account has been disabled";
+        }else{
+            echo "Incorrect email/password";
+        }
     }else{
         echo "Incorrect email/password";
     }
