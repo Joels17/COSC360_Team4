@@ -206,7 +206,7 @@ button:active {
 }
 #box-container{
 	position: relative;
-	padding: 210px 350px 0px 200px;
+	padding: 100px 350px 0px 200px;
 }
 
 #left-wrapper{
@@ -229,7 +229,6 @@ button:active {
 #blog-image{
 	height: 90px;
 	width: 90px;
-	background-color: yellow;
 	outline: 2px solid black;
 }
 #blog-info{
