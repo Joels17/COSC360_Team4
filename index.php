@@ -22,7 +22,19 @@
 
     <div class="content">
 		<div class="column-left" id="column1">
-			<h3>Trending Posts</h3>
+			<div id="row">
+				<div id="h3-textbox">
+					<h3>Trending Posts</h3>
+				</div>
+				<div id="select-box">
+					<label for="sort-posts" id="select-sort">Sort By:</label>
+
+					<select id="sort-posts">
+					  <option value="views">Top Views</option>
+					  <option value="newest">Newest</option>
+					</select>
+				</div>
+			</div>
 				<div id="left-wrapper">
 					<!-- DIV CLASS ROW IS ADDED INSIDE HERE 	\"data:image/jpeg;base64,". base64_encode( $results['img'] ) ."\"	-->
 					<?php
@@ -80,9 +92,13 @@
 			<?php 
                 if(isset($_SESSION['user'])){
             ?>
-				<h3>Your Posts</h3>
-				<div id="right-wrapper">
-					<!-- DIV CLASS ROW IS ADDED INSIDE HERE 		https://icon-library.net/images/icon-plus-sign/icon-plus-sign-18.jpg	-->
+			<div id="row">
+				<div id="h3-textbox">
+					<h3>Your Posts</h3>
+				</div>
+			</div>
+					<div id="right-wrapper">
+					<!-- DIV CLASS ROW IS ADDED INSIDE HERE -->
 					<?php
 						include "scripts/database_connect.php";
 						
@@ -189,7 +205,14 @@
 			<?php } ?>
 		</div>
     </div>
-
+	<script>
+		var select = document.getElementById('select-sort');
+		var value = select.value;
+		
+		select.addEventListener('change', (e) => {
+			if(
+		});
+	</script>
 
 
 
