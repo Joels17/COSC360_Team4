@@ -130,7 +130,7 @@ button:active {
 
 /*page styling */
 .content{
-    margin-top: 380px;
+    margin-top: 80px;
 	display: flex;
 	flex-direction: row;
 	flex-wrap: wrap;
@@ -191,6 +191,7 @@ button:active {
 	background-color: transparent;
 	border: none;
 	outline: none;
+	cursor: pointer;
 }
 #register-box-button{
 	width: 150px;
@@ -201,10 +202,11 @@ button:active {
 	background-color: transparent;
 	border: none;
 	outline: none;
+	cursor: pointer;
 }
 #box-container{
 	position: relative;
-	padding: 110px 350px 0px 200px;
+	padding: 210px 350px 0px 200px;
 }
 
 #left-wrapper{
