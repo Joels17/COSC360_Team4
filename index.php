@@ -10,6 +10,14 @@
 
 	<?php
 		include "header.php";
+		session_start();
+		if(isset($_SESSION['logged-out'])){
+			if($_SESSION['logged-out'] == 1){
+				$_SESSION = array();
+				session_destroy();
+				echo "<script type='text/javascript'>alert('You have been logged out');</script>";
+			}
+		}
 	?>
 
     <div class="content">

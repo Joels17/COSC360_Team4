@@ -26,3 +26,6 @@ body{
 	height: 100%;
     margin: 0;
 }
+#logout {
+    margin-left: 0;
+}

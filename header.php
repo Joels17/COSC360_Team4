@@ -12,7 +12,8 @@
                     session_start();
                     if(isset($_SESSION['user'])){
                 ?>
-                    <a href="login.php">Account</a>
+                    <a href="account.php">Account</a>
+                    <a id="logout" href="scripts/logout_script.php">Logout</a>
                 <?php }else{ ?>
                     <a href="login.php">Login</a>
                 <?php } ?>
