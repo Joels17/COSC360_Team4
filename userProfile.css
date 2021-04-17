@@ -1,0 +1,164 @@
+
+#form-master input{
+    pointer-events: none;
+    background-color: grey;
+    
+}
+
+#pp {
+    block-size: 10%;
+    border-radius: 50%;
+  }
+
+#heading{
+    display: flex;
+    border-bottom: black 1px solid;
+}
+
+
+
+
+
+.form-master{
+    display: flex;
+    justify-content: center;
+   
+}
+.fName,
+.lName,
+.new-password,
+.email,
+.password,
+.new-password,
+.confirm-new-password{
+ 
+     width: 30em;
+     position: relative;
+      height: 50px;
+    left: 1em;
+    top: 18em; 
+    
+     overflow: hidden;
+ }
+
+ .fName input,
+ .lName input,
+ .new-password input,
+ .email input,
+ .password input,
+ .confirm-new-password input{
+
+    width: 100%;
+    height: 50px;
+    padding-top: 20px;
+    border: none;
+    font-size: larger;
+    
+} 
+
+ .fName label,
+.lName label,
+.new-password label,
+.email label,
+.password label,
+.confirm-new-password label{
+
+    position: absolute;
+    bottom: 0px;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    border-bottom: 1px solid black;
+   
+} 
+
+.fName label::after,
+.lName label::after,
+.new-password label::after,
+.email label::after,
+.password label::after,
+.confirm-new-password label::after
+
+    {
+    content: "";
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    bottom: -1px;
+    left: 0;
+    border-bottom: 3px solid lightcoral;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+
+} 
+
+.content{
+    position: absolute;
+    bottom: 5px;
+    left: 0px;
+    transition: all 0.8s ease;
+} 
+
+
+
+ .fName input:focus + label .content,
+.fName input:valid + label .content,
+.lName input:focus + label .content,
+.lName input:valid + label .content,
+.new-password input:focus + label .content,
+.new-password input:valid + label .content,
+.email input:focus + label .content,
+.email input:valid + label .content,
+.password input:focus + label .content,
+.password input:valid + label .content,
+.confirm-new-password input:focus + label .content,
+.confirm-new-password input:valid + label .content
+{
+    transform: translateY(-150%);
+    font-size: 14px;
+} 
+.fName input:focus + label::after,
+.fName input:valid + label::after,
+
+.lName input:focus + label::after,
+.lName input:valid + label::after,
+
+.new-password input:focus + label::after,
+.new-password input:valid + label::after,
+
+.email input:focus + label::after,
+.email input:valid + label::after,
+
+.password input:focus + label::after,
+.password input:valid + label::after,
+
+.confirm-new-password input:focus + label::after,
+.confirm-new-password input:valid + label::after
+
+{
+     transform: translateX(0%);
+
+}
+
+
+.spacer{
+    padding: 2em;
+}
+
+#submitButton {
+    left: 36em;
+    top: 30em;
+    padding: 0.5em;
+    position: relative;
+    width: 20%;
+    border-radius: 1em;
+    border: none;
+    cursor: pointer;
+    height: 2em;
+   
+}
+
+#submit:hover{
+    box-shadow: 0 5px #666;
+}
