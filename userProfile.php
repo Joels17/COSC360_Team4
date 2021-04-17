@@ -30,7 +30,7 @@ if(isset($_SESSION['user'])){
 <head>
 <title>Profile</title>
 <link rel= "stylesheet" href="userProfile.css">
-<script defer type="text/JavaScript" src="scripts/index.js"></script>
+<!-- <script defer type="text/JavaScript" src="scripts/index.js"></script> -->
 <script  type="text/JavaScript" src="scripts/validateUser.js"></script>
 </head>
 
@@ -50,15 +50,14 @@ function checkPasswordMatch(e){
 
 
 <div id="heading">
-  <form action="./scripts/upload.php" method = "POST" id = "heading-form" enctype="multipart/form-data">
+  <!-- <form action="./scripts/upload.php" method = "POST" id = "heading-form" enctype="multipart/form-data">
 <input type="file" name="fileToUpload" id="fileToUpload">
 <input action type="submit" value="Change Profile Picture" name="submit">
-</form>
+</form> -->
 <?php   echo "<img id =\"pp\" src = '$profilePicture' alt = \"profile-picture\"";
-?></h1>
-
-    <?php   echo $_SESSION["user"] 
-?></h1>
+?>
+<span id = "username">
+<?php echo "<h1> $userName </h1>" ?></span>
 </div>
 
 

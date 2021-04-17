@@ -2,7 +2,7 @@
 #form-master input{
     pointer-events: none;
     background-color: grey;
-    
+   
 }
 
 #pp {
@@ -147,7 +147,7 @@
 }
 
 #submitButton {
-    left: 36em;
+    left: 1em;
     top: 30em;
     padding: 0.5em;
     position: relative;
@@ -161,4 +161,27 @@
 
 #submit:hover{
     box-shadow: 0 5px #666;
+}
+
+#edit{
+    left: 50em;
+    top: 94em;
+    padding: 0.5em;
+    position: relative;
+    width: 20%;
+    border-radius: 1em;
+    border: none;
+    cursor: pointer;
+    height: 2em;
+}
+
+#h1 {
+    background-color: red;
+}
+#username{
+   
+   size: larger;
+   
+ 
+    
 }
