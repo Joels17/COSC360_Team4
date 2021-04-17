@@ -2,7 +2,7 @@
 
 <?php
  //session_start();
-
+include "header.php";
 include "./scripts/database_connect.php";
 session_start();
 $username =  $_SESSION['user'] ;
