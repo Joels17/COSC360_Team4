@@ -33,6 +33,15 @@ window.addEventListener('load', function () {
             $("#content").html(data);
         });
     });
+    $("#search").change(function(){ //search bar
+        var s = $("#search").val();
+
+        $.get("db_search.php",
+        {search: s})
+        .done(function(data){
+            $("#main").html(data); //change #main to whichever tag you want to display the output in
+        });
+    });
 
   });
 

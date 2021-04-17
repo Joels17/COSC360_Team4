@@ -1,5 +1,5 @@
 <?php
-    include "database_connect.php";
+    include "scripts/database_connect.php";
     if(ISSET($_GET['title'])){
         $title = mysqli_real_escape_string($connection,trim($_GET['title']));
 
@@ -12,7 +12,7 @@
             }else{
                 $sql = "SELECT * FROM users;";
                 $stmtCode = mysqli_stmt_init($connection);
-                if(!mysqli_stmt_prepare($stmtCode, $sqlCode)){
+                if(!mysqli_stmt_prepare($stmtCode, $sql)){
                     echo "Title search failed";
                 }else{
                     mysqli_stmt_bind_param($stmtCode, "s", $title);
@@ -28,7 +28,34 @@
                 }
             }
 
-            mysqli_free_results($results);
+            mysqli_free_results($resultsCode);
+        }
+    }
+    if(ISSET($_GET['search'])){
+        $search = mysqli_real_escape_string($connection,trim($_GET['search']));
+
+        if(!is_null($search) && !empty($search)){
+            $error = mysqli_connect_error();
+            if($error != null){
+                $output = "<p> Unable to Connect to Database </p>";
+                exit($output);
+            }else{
+                $sql = "SELECT * FROM blogs WHERE title LIKE '%$search%';";
+                $stmtCode = mysqli_stmt_init($connection);
+                if(!mysqli_stmt_prepare($stmtCode,$sql)){
+                    echo "Title search Failed";
+                }else{
+                    mysqli_stmt_bind_param($stmtCode,"s",$search);
+                    mysqli_stmt_execute($stmtCode);
+                    $resultsCode = mysqli_stmt_get_result($stmtCode);
+                    while($row = mysqli_fetch_assoc($resultsCode)){
+                        //Insert Code here to change how the results are displayed
+                        echo "<p>Title: ".$row['title']."</p>";
+                        echo "<hr>";
+                    }
+                }
+            }
+            mysqli_free_result($resultsCode);
         }
     }
     mysqli_close($connection);
