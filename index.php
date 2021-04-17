@@ -134,7 +134,7 @@
 						echo "</div>";
 						
 						
-						$sqlMyBlogs = "SELECT id, title, views, img FROM blogs B, users U WHERE B.uploadUser = U.username AND uploadUser = ?;";
+						$sqlMyBlogs = "SELECT id, title, views, img FROM blogs B, users U WHERE B.uploadUser = U.username AND uploadUser = ? ORDER BY B.views DESC LIMIT 10;";
 						$stmtCheck = mysqli_stmt_init($connection);
 						$username = $_SESSION['user'];
 						if(!mysqli_stmt_prepare($stmtCheck, $sqlMyBlogs)){

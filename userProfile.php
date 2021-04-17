@@ -54,10 +54,13 @@ function checkPasswordMatch(e){
 <input type="file" name="fileToUpload" id="fileToUpload">
 <input action type="submit" value="Change Profile Picture" name="submit">
 </form> -->
-<?php   echo "<img id =\"pp\" src = '$profilePicture' alt = \"profile-picture\"";
-?>
-<span id = "username">
-<?php echo "<h1> $userName </h1>" ?></span>
+	<?php   echo '<img src="data:image/jpeg;base64,'. base64_encode($profilePicture) .'" width=90 height=90/>';
+	?>
+	<div id="username-container">
+		<span id = "username">
+			<?php echo "<h1>User: $userName </h1>" ?>
+		</span>
+	</div>
 </div>
 
 
