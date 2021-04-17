@@ -17,7 +17,7 @@
                             }
                         }
                 ?>
-                    <a href="account.php">Account</a>
+                    <a href="userProfile.php">Account</a>
                     <a id="logout" href="scripts/logout_script.php">Logout</a>
                 <?php }else{ ?>
                     <a href="login.php">Login</a>
