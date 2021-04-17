@@ -9,10 +9,18 @@
     <?php
         include "header.php";
         include "scripts/database_connect.php";
+        session_start();
+
     ?>
     <div class="content">
+        
         <div class="column-left" id="column1">
             <?php
+                    if(isset($_SESSION['admin'])){
+                        ?>
+                            <a id="delete" href="scripts/deleteBlog.php?blogId=<?php echo $_GET['blogId']?>">DELETE THIS BLOG POST</a>
+                        <?php
+                    }
                 if(!isset($_GET['blogId'])){
                     die("No blog id");
                 }

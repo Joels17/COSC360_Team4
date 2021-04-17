@@ -78,3 +78,6 @@ button:active {
     color: grey;
     margin-bottom: 0;
 }
+#delete {
+    color: red;
+}
