@@ -183,11 +183,16 @@ button:active {
 	font-size: 18px;
 }
 #h3-textbox{
-	margin-left: 350px;
+	margin-left: 250px;
 }
 #select-box{
 	margin-left: 65px;
 	margin-top: 25px;
+}
+#search-box{
+	border: 2px solid black;
+	margin-left: 65px;
+	background-color: yellow;
 }
 #select-sort{
 	font-size: 18px;

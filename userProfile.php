@@ -1,14 +1,22 @@
 
 
 <?php
- session_start();
+ //session_start();
 
 include "./scripts/database_connect.php";
+session_start();
+$username =  $_SESSION['user'] ;
 
-$userName =  $_SESSION['user'] ;
-
-$sql = "SELECT * FROM users WHERE username = '$userName' ;";
-$results = mysqli_query($connection, $sql);
+$sql = "SELECT * FROM users WHERE username = ?;";
+$stmtCheck = mysqli_stmt_init($connection);
+if(!mysqli_stmt_prepare($stmtCheck, $sql)){
+	echo "SQL statement failed";
+	exit();
+}
+	
+	mysqli_stmt_bind_param($stmtCheck, "s", $username);
+	mysqli_stmt_execute($stmtCheck);
+	$results = mysqli_stmt_get_result($stmtCheck);
     if (mysqli_num_rows($results) > 0) {
         while($row = mysqli_fetch_assoc($results)) {
           
@@ -17,8 +25,8 @@ $results = mysqli_query($connection, $sql);
             $eemail = $row['email'];
             $ppassword = $row['password'];
             $profilePicture = $row['img'];
-        }
-        }
+		}
+    }
 mysqli_close($connection);
 
 if(isset($_SESSION['user'])){
@@ -36,6 +44,10 @@ if(isset($_SESSION['user'])){
 
 
 <body>
+
+<?php
+        //include "header.php";
+    ?>
 <script type="text/javascript">
 function checkPasswordMatch(e){  
   var password = document.getElementById("password").value;
@@ -58,7 +70,7 @@ function checkPasswordMatch(e){
 	?>
 	<div id="username-container">
 		<span id = "username">
-			<?php echo "<h1>User: $userName </h1>" ?>
+			<?php echo "<h1>User: $username </h1>" ?>
 		</span>
 	</div>
 </div>
