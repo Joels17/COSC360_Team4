@@ -13,9 +13,8 @@
 #heading{
     display: flex;
     border-bottom: black 1px solid;
+    margin-top:2em;
 }
-
-
 
 
 
@@ -190,4 +189,28 @@
    
  
     
+}
+.content{
+    margin-top: 80px;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	width: 100%;
+}
+.column-left{
+	display: flex;
+	flex-direction: column;
+	flex-basis: 100%;
+	flex: 1;
+	padding: 10px;
+	border-right: 5px solid grey;
+	height: 100%;
+}
+.column-right{
+	display: flex;
+	flex-direction: column;
+	flex-basis: 100%;
+	flex: 1;
+	padding: 10px;
+	height: 100%;
 }
