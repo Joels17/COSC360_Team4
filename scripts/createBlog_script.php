@@ -19,7 +19,7 @@
         $user = $_SESSION['user'];
         mysqli_stmt_bind_param($stmt, "sssis", $title, $body, $date, $views, $user);
         mysqli_stmt_execute($stmt);
-        echo "Success!";
+        header("Location: ../index.php"); 
     }
     mysqli_close($connection);
 ?>

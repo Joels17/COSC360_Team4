@@ -1,10 +1,10 @@
 
 <?php
 // Included where db connection is needed
-//$host = "localhost";
-//$database = "project360";
-//$user = "webuser";
-//$password = "P@ssw0rd";
+// $host = "localhost";
+// $database = "project360";
+// $user = "webuser";
+// $password = "P@ssw0rd";
 
 //Get Heroku ClearDB connection information
 
