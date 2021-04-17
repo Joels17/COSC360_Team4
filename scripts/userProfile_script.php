@@ -12,7 +12,7 @@ $nfName = $_POST["fName"];
 $nlName = $_POST["lName"];
 $nEmail = $_POST["email"];
 
-
+$image=null;
 if(isset($_POST["submit"])) {
 $image = addslashes(file_get_contents($_FILES['fileToUpload']['tmp_name']));
 }
