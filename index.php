@@ -36,59 +36,16 @@
 				</div>
 				<div id="search-box">
 					<label for="topicSearch" class="topicSearch-box"><span class = "topic-span">Search for a Topic:</span> </label>
-					<input placeholder = "Topic Search" type="text" name = "topicSearch">
+					<input placeholder = "Topic Search" type="text" name = "topicSearch" id="topicSearch">
 				</div>
 			</div>
 				<div id="left-wrapper">
 					<!-- DIV CLASS ROW IS ADDED INSIDE HERE 	\"data:image/jpeg;base64,". base64_encode( $results['img'] ) ."\"	-->
+					<div id="blogSection">
 					<?php
-						include "scripts/database_connect.php";
-						
-						$sqlBlogs = "SELECT id, title, views, uploadUser, img FROM blogs B, users U WHERE B.uploadUser = U.username ORDER BY B.views DESC LIMIT 10;";
-						$error = mysqli_connect_error();
-						if($error != null)
-						{
-						  $output = "<p>Unable to connect to database!</p>";
-						  exit($output);
-						}
-						else{
-							$results = mysqli_query($connection, $sqlBlogs);
-							while ($row = mysqli_fetch_assoc($results))
-							{
-								echo "<div id=\"row\">";
-									echo "<div id=\"post\">";
-										echo "<div id=\"preset-row\">";
-											echo "<a href=\"blogPage.php?blogId=" . $row['id'] . "\">";
-											echo "<div id=\"row\">";
-												echo "<div id=\"blog-image\">";
-													echo '<img src="data:image/jpeg;base64,'. base64_encode($row['img']) .'" width=90 height=90/>';
-												echo "</div>";
-												echo "<div id=\"spacer\">";
-												echo "</div>";
-												echo "<div id=\"blog-info\">";
-													echo "<div id=\"row\">";
-														echo "<div id=\"info-title\" class=\"info-inside\">";
-															echo "Title: " . $row['title'];
-														echo "</div>";
-														echo "<div id=\"info-author\" class=\"info-inside\">";
-															echo "Author: " . $row['uploadUser'];
-														echo "</div>";
-														echo "<div id=\"info-views\" class=\"info-inside\">";
-															echo "Views: " . $row['views'];
-														echo "</div>";
-													echo "</div>";
-												echo "</div>";
-											echo "</div>";
-											echo "</a>";
-										echo "</div>";
-									echo "</div>";
-								echo "</div>";
-							}
-							
-						}
-							mysqli_close($connection);
+						include "sortBy.php";
 					?>
-					
+					</div>
 					<!-- END OF DIV CLASS ROW ADDED HERE -->
 				</div>
 		</div>
@@ -210,16 +167,22 @@
 		</div>
     </div>
 	<script>
-		var select = document.getElementById('select-sort');
-		var value = select.value;
-		
-		select.addEventListener('change', (e) => {
-			if(
+		var select = document.getElementById('sort-posts');
+		var search = document.getElementById('topicSearch');
+		search.addEventListener('input', (e) => {
+			console.log(e.target.value);
+			$.get("sortBy.php?keyword="+e.target.value).done(function(data){
+            $("#blogSection").html(data);
 		});
+		});
+		select.addEventListener('change', (e) => {
+			alert("Please wait a few seconds for blog sorting: "+e.target.value);
+			$.get("sortBy.php?sort="+e.target.value).done(function(data){
+            $("#blogSection").html(data);
+		})});
+
+
 	</script>
-
-
-
 	<?php
 		include "footer.php";
 	?>
