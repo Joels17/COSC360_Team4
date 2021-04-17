@@ -34,6 +34,10 @@
 					  <option value="newest">Newest</option>
 					</select>
 				</div>
+				<div id="search-box">
+					<label for="topicSearch" class="topicSearch-box"><span class = "topic-span">Search for a Topic:</span> </label>
+					<input placeholder = "Topic Search" type="text" name = "topicSearch">
+				</div>
 			</div>
 				<div id="left-wrapper">
 					<!-- DIV CLASS ROW IS ADDED INSIDE HERE 	\"data:image/jpeg;base64,". base64_encode( $results['img'] ) ."\"	-->
