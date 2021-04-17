@@ -18,6 +18,23 @@
 				echo "<script type='text/javascript'>alert('You have been logged out');</script>";
 			}
 		}
+		if(isset($_SESSION['user'])){
+			include "scripts/database_connect.php";
+			$sqlCheck = "SELECT disabled FROM users WHERE username = ?;";
+			$stmtCheck = mysqli_stmt_init($connection);
+			if(!mysqli_stmt_prepare($stmtCheck, $sqlCheck)){
+				echo "SQL statement failed";
+			}else{
+				mysqli_stmt_bind_param($stmtCheck, "s", $_SESSION['user']);
+				mysqli_stmt_execute($stmtCheck);
+				$resultsCheck = mysqli_stmt_get_result($stmtCheck);
+				$results = mysqli_fetch_assoc($resultsCheck);
+				if($results['disabled'] == 1){
+					header("Location: scripts/logout_script.php");
+				}
+			}
+		}
+
 	?>
 
     <div class="content">

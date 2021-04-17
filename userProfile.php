@@ -74,8 +74,8 @@ function checkPasswordMatch(e){
 		</span>
 	</div>
 </div>
-
-
+<div class="content">
+<div class="column-left" id="column1">
 <button action = "./scripts/userProfile_script.php" id ="edit">Edit Info</button>
 
     <form  action="./scripts/userProfile_script.php" method = "POST" enctype="multipart/form-data" id = "form-master" >
@@ -133,6 +133,48 @@ function checkPasswordMatch(e){
     
     
     </form>
+    </div>
+    <div class="column-right" id="column2">
+    <h2>Your comments</h2>
+    <?php
+  
+          include "scripts/database_connect.php";
+          $blogIdComment = $_SESSION['user'];
+          $sqlComment = "SELECT * FROM comments WHERE uploadUser = ? ORDER BY datetime DESC;";
+          $stmtComment = mysqli_stmt_init($connection);
+          if(!mysqli_stmt_prepare($stmtComment, $sqlComment)){
+              echo "SQL statement failed";
+          }else{
+              mysqli_stmt_bind_param($stmtComment, "s", $blogIdComment);
+              mysqli_stmt_execute($stmtComment);
+              $resultsComment = mysqli_stmt_get_result($stmtComment);
+              $count = 0;
+              while ($myRow = mysqli_fetch_assoc($resultsComment)){
+                  $count = $count +1;
+                  ?>
+                  <div class="commentBox">
+                      <div class="commentBody">
+                      <?php
+                          echo "<b>".$myRow['uploadUser']."</b>: <br>&emsp;".$myRow['commentBody'];
+                      ?>
+                      </div>
+                      <div class="datetime">
+                          <?php
+                              echo "<i>".$myRow['datetime']."</i>";
+                          ?>
+                      </div>
+                      <br>
+                  </div>
+                  <?php
+                  
+              }
+              echo $count==0?"<p id=\"noComments\">No comments on this blog post</p>":"";
+          }
+          mysqli_free_result($resultsComment);
+          mysqli_close($connection);
+    ?>
+    </div>
+</div>
 </body>
 
 
